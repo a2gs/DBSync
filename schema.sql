@@ -1,3 +1,5 @@
+-- Andre Augusto Giannotti Scota (https://sites.google.com/view/a2gs/)
+
 CREATE SCHEMA DBSYNC;
 SET search_path TO DBSYNC;
 

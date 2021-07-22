@@ -1,3 +1,5 @@
+-- Andre Augusto Giannotti Scota (https://sites.google.com/view/a2gs/)
+
 SET search_path TO DBSYNC;
 
 INSERT INTO DBSYNC.taskStatus (status, description) VALUES (1, 'Active');
