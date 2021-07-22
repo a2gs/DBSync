@@ -58,6 +58,8 @@ CREATE TABLE IF NOT EXISTS
 DBSYNC.config(
     id INT,
     type INT NOT NULL,
+    config TEXT,
+    description TEXT,
 
     PRIMARY KEY (id),
     CONSTRAINT fk_status FOREIGN KEY (type) REFERENCES DBSYNC.dbType (type)
@@ -67,11 +69,11 @@ DBSYNC.config(
 
 CREATE TABLE IF NOT EXISTS
 DBSYNC.cmd(
-    id BIGSERIAL,
-    idCfg INT,
+    id BIGSERIAL NOT NULL,
+    idCfg INT NOT NULL,
     query TEXT,
     rowsAffected INT,
-    dtExecuted TIMESTAMP NOT NULL,
+    dtExecuted TIMESTAMP,
     retCode INT,
     retMsg TEXT,
 
