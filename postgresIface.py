@@ -78,15 +78,15 @@ class postgresIface():
 		self.connection.rollback()
 
 	def execInsertDeleteUpdate(conn : psycopg2.connect, query: str) -> bool:
-		 try:
-			  cursor = conn.cursor()
-			  cursor.execute(query)
-		 except Warning as e:
-			 cursor.close()
-			 return [False, f"Warning '{e}' occurred. SelectFetchAll.", [], 0]
-		 except Error as e:
-			 cursor.close()
-			 return [False, f"POSTGRES ERROR SelectFetchAll: {e}\nMore error info:{e.pgerror}\nPostgres erro code: [{e.pgcode}]\n", [], 0]
+		try:
+			cursor = conn.cursor()
+			cursor.execute(query)
+		except Warning as e:
+			cursor.close()
+			return [False, f"Warning '{e}' occurred. SelectFetchAll.", [], 0]
+		except Error as e:
+			cursor.close()
+			return [False, f"POSTGRES ERROR SelectFetchAll: {e}\nMore error info:{e.pgerror}\nPostgres erro code: [{e.pgcode}]\n", [], 0]
 
-		 cursor.close()
-		 return True
+		cursor.close()
+		return True
